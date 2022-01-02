@@ -1,10 +1,7 @@
-from django.http import response
-from django.shortcuts import redirect
 from django.test import TestCase, Client
-from .views import redirect_to_original_url, create_short_url, make_new_url
 from .models import Url
-from django.urls import reverse, resolve
-import json
+from django.urls import reverse
+
 
 class TestView(TestCase):
     def setUp(self):
