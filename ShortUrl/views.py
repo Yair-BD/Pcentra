@@ -17,7 +17,10 @@ def create_short_url(request):
         if url_form.is_valid():
             origial_website = url_form.cleaned_data['original_url']
             new_url = make_new_url() # With random and string i made the short url 
-            
+
+            while(len(Url.objects.filter(short_url=new_url)) != 0):
+                new_url = make_new_url()
+
             final_url = Url(original_url=origial_website, short_url=new_url, click_time = 0) # Create new Url model
             final_url.save()
 
